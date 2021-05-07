@@ -30,12 +30,11 @@ export default function App() {
 function Logout(props) {
   
   const {mail} = props;
-  const logout = ()=>{
-    firebase.auth().signOut();
-  }
+  
   return(
     <View>
       <Cotizador mail = {mail}></Cotizador>
+      
     </View>
     
   )

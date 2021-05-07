@@ -45,39 +45,38 @@ export default function RegisterForm(props) {
 
 
     return (
-
-
         <>
-            <TextInput
-                style={[styles.input,formError.email && styles.errorInput]}
-                placeholder="Correo electrónico"
-                placeholderTextColor="#969696"
-                onChange = {(e)=>setFormData({...formData, email:e.nativeEvent.text})}
-            />
-            <TextInput
-                style={[styles.input,formError.password && styles.errorInput]}
-                placeholder="Contraseña"
-                placeholderTextColor="#969696"
-                secureTextEntry={true}
-                onChange = {(e)=>setFormData({...formData, password:e.nativeEvent.text})}
-                
-            />
-            <TextInput
-                style={[styles.input,formError.confirmPass && styles.errorInput]}
-                placeholder="repetir contraseña"
-                placeholderTextColor="#969696"
-                secureTextEntry={true}
-                onChange = {(e)=>setFormData({...formData, confirmPass:e.nativeEvent.text})}
-            />
-            <TouchableOpacity>
-                <Text style={styles.btnText} onPress={register}>Registrate</Text>
-            </TouchableOpacity>
+            <View style={styles.container}>
+                <TextInput
+                    style={[styles.input, formError.email && styles.errorInput]}
+                    placeholder="Correo electrónico"
+                    placeholderTextColor="#000"
+                    onChange={(e) => setFormData({ ...formData, email: e.nativeEvent.text })}
+                />
+                <TextInput
+                    style={[styles.input, formError.password && styles.errorInput]}
+                    placeholder="Contraseña"
+                    placeholderTextColor="#000"
+                    secureTextEntry={true}
+                    onChange={(e) => setFormData({ ...formData, password: e.nativeEvent.text })}
 
-            <View style={styles.login}>
-                <TouchableOpacity onPress={changeForm}>
-                    <Text style={styles.btnText}>Iniciar sesión</Text>
+                />
+                <TextInput
+                    style={[styles.input, formError.confirmPass && styles.errorInput]}
+                    placeholder="Repetir contraseña"
+                    placeholderTextColor="#000"
+                    secureTextEntry={true}
+                    onChange={(e) => setFormData({ ...formData, confirmPass: e.nativeEvent.text })}
+                />
+                <TouchableOpacity>
+                    <Text style={styles.btnText} onPress={register}>Registrate</Text>
                 </TouchableOpacity>
+                <TouchableOpacity onPress={changeForm}>
+                        <Text style={styles.btnText}>Iniciar sesión</Text>
+                    </TouchableOpacity>
+                
             </View>
+
         </>
     )
 }
@@ -93,28 +92,34 @@ function defaultValue() {
 
 const styles = StyleSheet.create({
     btnText: {
-        color: "#fff",
+        color: "#CB6500",
         fontSize: 20,
     },
     input: {
-        height: 35,
-        color: "#fff",
+        height: 40,
+        color: "#000",
         marginBottom: 25,
         width: "80%",
-        backgroundColor: "#1e3040",
+        backgroundColor: "#F4CCA4",
         paddingHorizontal: 20,
         borderRadius: 50,
         fontSize: 18,
         borderWidth: 1,
-        borderColor: "#1e3040",
+        borderColor: "#F4CCA4"
     },
     login: {
         flex: 1,
-        justifyContent: "flex-end",
-        marginBottom: 10
+        justifyContent: "space-between",
+
     },
-    errorInput:{
+    errorInput: {
         borderColor: "#940c0c"
+    },
+    container: {
+        flex: 3,
+        flexDirection: "column",
+        justifyContent: 'center', //Centered vertically
+        alignItems: 'center',
     }
 
 })
