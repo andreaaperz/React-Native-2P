@@ -8,8 +8,9 @@ import Resumen from './Resumen';
 
 LogBox.ignoreAllLogs();
 
-export default function Cotizador(){
+export default function Cotizador(props){
 
+    const {mail } = props;
     const [cantidad, setCantidad] = useState(0);
     const [sueldo, setSueldo] = useState(0);
     const [meses, setMeses] = useState(0);
@@ -19,7 +20,7 @@ export default function Cotizador(){
     const [errorMessage, setErrorMessage] = useState('');
     const [data, setData] = useState([ {label: '3 meses', value: 3}]);
 
-    const [isCaluclated,setIsCaluclated] = useState(true);
+    const [isCaluclated,setIsCaluclated] = useState(false);
 
     useEffect(()=>{}, 
     
@@ -76,7 +77,6 @@ export default function Cotizador(){
     }
   
     return(
-        <View>
         <View style={styles.background}>
             <View style={styles.margin}>
                 <TextInput 
@@ -110,8 +110,8 @@ export default function Cotizador(){
                     Ingresar
                 </Text>
             </View>
+            <Resumen mail = {mail} cantidad = {cantidad} interes={interes} iva={iva} mensual ={mensual}></Resumen>
         </View>
-    </View>
     );
 }
 

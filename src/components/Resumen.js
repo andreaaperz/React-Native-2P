@@ -1,17 +1,17 @@
 import React, {useState} from 'react';
-import {View,StyleSheet, Text, Image, Button} from 'react-native';
+import {View, Modal, StyleSheet, Text, Image, Button} from 'react-native';
 
 
-export default function Resumen(){
-    //const { mail, cantidad, interes, iva, mensual} = props;
+export default function Resumen(props){
+    const { mail, cantidad, interes, iva, mensual} = props;
 
     return(
-        <View style={styles.view}>
-           <Text>Email: </Text>
-           <Text>Cantidad:</Text>
-           <Text>Interes:</Text>
-           <Text>IVA:</Text>
-           <Text>PagoMensual:</Text>
+        <View style={styles.view} >
+           <Text>Email: {mail}</Text>
+           <Text>Cantidad: {cantidad}</Text>
+           <Text>Interes: {interes}</Text>
+           <Text>IVA: {iva}</Text>
+           <Text>Pago Mensual: {mensual}</Text>
         </View>
     );
 }
